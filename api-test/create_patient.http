@@ -1,0 +1,16 @@
+POST http://localhost:8080/patients
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvY3lhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyMTExMzMwLCJyb2xlIjoiZG9jdG9yIiwidXNlcklkIjoxfQ.q1sr0l_A3T7dviiiJG0_sQLAETDu_BDaP2hxAzU8Zt0
+
+{
+  "uhid": "KA-244803029",
+  "barcode": "243671063",
+  "name": "krishnegowda",
+  "labourid": "255363",
+  "age": 40,
+  "gender": "Male",
+  "mobile": "9844658912",
+  "district": "Mandya",
+  "taluk": "Maddur",
+  "camp": "Maradevanahalli(Maddur)"
+}
