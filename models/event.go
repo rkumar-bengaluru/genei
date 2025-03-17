@@ -2,8 +2,6 @@ package models
 
 import (
 	"time"
-
-	"example.com/rest-api/db"
 )
 
 type Event struct {
@@ -21,7 +19,7 @@ func (e *Event) Save() error {
 	query := `
 	INSERT INTO events(name, description, location, dateTime, user_id) 
 	VALUES (?, ?, ?, ?, ?)`
-	stmt, err := db.DB.Prepare(query)
+	stmt, err := DB.Prepare(query)
 	if err != nil {
 		return err
 	}
@@ -37,7 +35,7 @@ func (e *Event) Save() error {
 
 func GetAllEvents() ([]Event, error) {
 	query := "SELECT * FROM events"
-	rows, err := db.DB.Query(query)
+	rows, err := DB.Query(query)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +59,7 @@ func GetAllEvents() ([]Event, error) {
 
 func GetEventByID(id int64) (*Event, error) {
 	query := "SELECT * FROM events WHERE id = ?"
-	row := db.DB.QueryRow(query, id)
+	row := DB.QueryRow(query, id)
 
 	var event Event
 	err := row.Scan(&event.ID, &event.Name, &event.Description, &event.Location, &event.DateTime, &event.UserID)
@@ -78,7 +76,7 @@ func (event Event) Update() error {
 	SET name = ?, description = ?, location = ?, dateTime = ?
 	WHERE id = ?
 	`
-	stmt, err := db.DB.Prepare(query)
+	stmt, err := DB.Prepare(query)
 
 	if err != nil {
 		return err
@@ -92,7 +90,7 @@ func (event Event) Update() error {
 
 func (event Event) Delete() error {
 	query := "DELETE FROM events WHERE id = ?"
-	stmt, err := db.DB.Prepare(query)
+	stmt, err := DB.Prepare(query)
 
 	if err != nil {
 		return err
@@ -106,7 +104,7 @@ func (event Event) Delete() error {
 
 func (e Event) Register(userId int64) error {
 	query := "INSERT INTO registrations(event_id, user_id) VALUES (?, ?)"
-	stmt, err := db.DB.Prepare(query)
+	stmt, err := DB.Prepare(query)
 
 	if err != nil {
 		return err
@@ -121,7 +119,7 @@ func (e Event) Register(userId int64) error {
 
 func (e Event) CancelRegistration(userId int64) error {
 	query := "DELETE FROM registrations WHERE event_id = ? AND user_id = ?"
-	stmt, err := db.DB.Prepare(query)
+	stmt, err := DB.Prepare(query)
 
 	if err != nil {
 		return err

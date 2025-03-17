@@ -1,6 +1,7 @@
+//POST http://98.84.97.216:8080/api/signup
 POST http://localhost:8080/api/patients
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvY3lhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyMTExMzMwLCJyb2xlIjoiZG9jdG9yIiwidXNlcklkIjoxfQ.q1sr0l_A3T7dviiiJG0_sQLAETDu_BDaP2hxAzU8Zt0
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF1ZHlhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyMjExOTgwLCJyb2xlIjoiYXVkaW8iLCJ1c2VySWQiOjZ9.-jJaaloj-LhwKTMAWZBDQVQi6cPqpKGaTg5tjgU92HQ
 
 {
   "uhid": "KA-244803029",

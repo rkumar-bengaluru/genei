@@ -6,38 +6,40 @@ import (
 
 	"example.com/rest-api/logger"
 	"example.com/rest-api/models"
+	"example.com/rest-api/service"
 	"example.com/rest-api/utils"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
 
-func signup(context *gin.Context) {
+func signup(context *gin.Context, us *service.UserService) {
 	var user models.User
 	err := context.ShouldBindJSON(&user)
 	if err != nil {
-		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse request data."})
+		context.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 		return
 	}
 
-	err = user.Save(context)
+	err = us.Save(&user)
 	if err != nil {
-		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not save user."})
+		context.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
 		return
 	}
 
 	context.JSON(http.StatusCreated, gin.H{"message": "User created successfully"})
 }
 
-func login(context *gin.Context) {
+func login(context *gin.Context, us *service.UserService) {
 	var user models.User
 	err := context.ShouldBindJSON(&user)
-	log := logger.Get(context).With(zap.String("username", user.Email))
+	log := logger.Get(context).With(zap.String("username", user.Email),
+		zap.String("method", "login"))
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse request data."})
 		return
 	}
 	log.Info("Validating User...")
-	role, err := user.ValidateCredentials(context)
+	role, err := us.ValidateCredentials(&user)
 
 	if err != nil {
 		log.Error(err.Error())
