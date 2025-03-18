@@ -124,7 +124,7 @@ func (r *postgresRepository) ValidateCredentials(u *User) (string, error) {
 		zap.String("role", u.Role),
 		zap.String("method", "ValidateCredentials"))
 
-	sqlQuery := "SELECT id, password,role FROM users WHERE email = ?"
+	sqlQuery := "SELECT id, password,role_id FROM users WHERE user_name = ?"
 
 	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
 	inputArgs = append(inputArgs, u.Email)
@@ -133,7 +133,8 @@ func (r *postgresRepository) ValidateCredentials(u *User) (string, error) {
 	row := DB.QueryRow(sqlQuery, inputArgs...)
 
 	var retrievedPassword string
-	err := row.Scan(&u.ID, &retrievedPassword, &u.Role)
+	var roleId string
+	err := row.Scan(&u.ID, &retrievedPassword, &roleId)
 
 	if err != nil {
 		log.Error(err.Error())
@@ -147,5 +148,21 @@ func (r *postgresRepository) ValidateCredentials(u *User) (string, error) {
 		return "", errors.New("credentials invalid")
 	}
 
-	return u.Role, nil
+	// fetch role
+	sqlQueryFetchRole := "SELECT name FROM roles WHERE id = ?"
+	var inputArgsRole []interface{}
+	sqlQueryFetchRole = sqlx.Rebind(sqlx.DOLLAR, sqlQueryFetchRole)
+	inputArgsRole = append(inputArgsRole, roleId)
+	log.Info(fmt.Sprintf("query : %v", sqlQueryFetchRole))
+
+	row = DB.QueryRow(sqlQueryFetchRole, inputArgsRole...)
+	var roleName string
+	err = row.Scan(&roleName)
+
+	if err != nil {
+		log.Error(err.Error())
+		return "", err
+	}
+
+	return roleName, nil
 }
