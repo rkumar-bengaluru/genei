@@ -47,5 +47,7 @@ type Repository interface {
 	ValidateCredentials(ctx *context.Context, u *models.User) (string, error)
 	GetPassword(ctx *context.Context, u *models.User) (string, error)
 	GetRole(ctx *context.Context, roleId uuid.UUID) (string, error)
-	CreateCampaign(ctx *context.Context, c *models.Campaign) error
+	CreateCampaign(ctx *context.Context, c *models.ArogyaCampaign) error
+	ListCampaigns(ctx *context.Context, pageSize, offset int) ([]*models.ArogyaCampaign, error)
+	SaveAssigningAuthority(ctx *context.Context, u *models.AssigningAuthority) error
 }

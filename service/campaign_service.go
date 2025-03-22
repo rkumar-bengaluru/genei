@@ -19,6 +19,10 @@ func NewCampaignService(repo repository.Repository) *CampaignService {
 	}
 }
 
-func (ps *CampaignService) CreateCampaign(ctx *context.Context, campaign *models.Campaign) error {
+func (ps *CampaignService) CreateCampaign(ctx *context.Context, campaign *models.ArogyaCampaign) error {
 	return ps.repo.CreateCampaign(ctx, campaign)
+}
+
+func (ps *CampaignService) ListCampaign(ctx *context.Context, pageSize, offset int) ([]*models.ArogyaCampaign, error) {
+	return ps.repo.ListCampaigns(ctx, pageSize, offset)
 }

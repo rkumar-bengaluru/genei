@@ -25,6 +25,10 @@ func RegisterRoutes(server *gin.Engine,
 		createCampign(c, campaignService)
 	})
 
+	authenticated.GET("/api/admin/campaigns", func(c *gin.Context) {
+		listCampaigns(c, campaignService)
+	})
+
 	server.POST("/api/signup", func(c *gin.Context) {
 		signup(c, userService)
 	})

@@ -6,6 +6,19 @@ import (
 	"github.com/google/uuid"
 )
 
+type WellBeUser struct {
+	UserName      string `json:"name"`
+	Mobile        string `json:"contact"`
+	EmailId       string `binding:"required" json:"email"`
+	Department    string `json:"department"`
+	Gender        string `json:"gender"`
+	FirstName     string `json:"firstname"`
+	MiddleName    string `json:" middlename"`
+	LastName      string `json:"lastname"`
+	DateOfBirth   string `json:"dateofbirth"`
+	DateOfJoining string `json:"dateofjoin"`
+	Type          string `json:"type"`
+}
 type User struct {
 	ID                   int64
 	UserName             string    `json:"user_name"`

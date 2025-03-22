@@ -1,8 +1,8 @@
 //POST http://98.84.97.216:8080/api/login
-POST http://98.84.97.216:8080/api/login
+POST http://localhost:8080/api/login
 content-type: application/json
 
 {
-  "email": "docyadt1@example.com",
+  "email_id": "docyadt1@example.com",
   "password": "Team1@1234"
 }

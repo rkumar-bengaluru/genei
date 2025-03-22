@@ -70,32 +70,38 @@ CREATE TABLE IF NOT EXISTS pin_codes (
 
 CREATE TABLE IF NOT EXISTS campaigns (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  district_id UUID NOT NULL,
-  state_id UUID NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  distict VARCHAR(100) NOT NULL,
+  village VARCHAR(100) NOT NULL,
+  taluk_name VARCHAR(100) NOT NULL,
+  pin_code VARCHAR(100) NOT NULL,
+  camp_id VARCHAR(100) NOT NULL,
+  work_order VARCHAR(100) NOT NULL,
+  visibility VARCHAR(100) NOT NULL,
+  status VARCHAR(100) NOT NULL,
+  created_by VARCHAR(100) NOT NULL,
+  created_at Date NOT NULL,
+  updated_at Date NOT NULL,
+  state_name VARCHAR(100) ,
+  description TEXT NOT NULL,
+
   estimated_target_screening INTEGER NOT NULL,
   labour_inspector_name VARCHAR(100) ,
   union_name VARCHAR(100) ,
   union_leader_name VARCHAR(100) ,
   latitude VARCHAR(100) NOT NULL,
   longitude VARCHAR(100) NOT NULL,
-  pin_code_id UUID NOT NULL,
-  taluk_name VARCHAR(100) NOT NULL,
-  application_access_id UUID NOT NULL,
-  camp_name VARCHAR(100) NOT NULL,
-  description TEXT NOT NULL,
+  
   screening_start_date DATE NOT NULL,
   screening_start_time TEXT NOT NULL,
-  assigning_authority_id UUID NOT NULL,
-  store_id UUID NOT NULL,
-  work_order_id UUID NOT NULL,
 
-  FOREIGN KEY(district_id) REFERENCES districts(id),
-  FOREIGN KEY(state_id) REFERENCES states(id),
-  FOREIGN KEY(pin_code_id) REFERENCES pin_codes(id),
+  application_access_id UUID ,
+  assigning_authority_id UUID ,
+  store_id UUID ,
+
   FOREIGN KEY(application_access_id) REFERENCES application_access(id),
   FOREIGN KEY(assigning_authority_id) REFERENCES assigning_authority(id),
-  FOREIGN KEY(store_id) REFERENCES stores(id),
-  FOREIGN KEY(work_order_id) REFERENCES work_orders(id)
+  FOREIGN KEY(store_id) REFERENCES stores(id)
 );
 
 -- user

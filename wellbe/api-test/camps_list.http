@@ -5,7 +5,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic3VnZ3VsY
 
 {
   "__paginate": {
-    "page": 2,
+    "page": 1,
     "limit": 20,
     "orderBy": "createdAt",
     "orderDirection": "desc",

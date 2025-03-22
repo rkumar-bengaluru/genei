@@ -18,6 +18,7 @@ func HashPassword(password string) (string, error) {
 }
 
 func main() {
+
 	ctx := zcontext.BackgroundContext()
 	log := logger.Get(ctx).With(zap.String("methodName", "main"))
 	conn := db.CreateDB(ctx, "genei-server")
@@ -28,6 +29,7 @@ func main() {
 	patientService := service.NewPatientService(repo)
 	userService := service.NewUserService(repo)
 	campaignService := service.NewCampaignService(repo)
+	//seed.SeedCampaignData(campaignService)
 	server := gin.Default()
 
 	routes.RegisterRoutes(server, patientService, userService, campaignService)

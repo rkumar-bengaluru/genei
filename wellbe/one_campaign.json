@@ -1,0 +1,451 @@
+{
+    "docs": [
+        {
+            "extraDetails": {
+              "labParameters": null,
+              "matchingDetail": null,
+              "isAdvanceFormSelection": true
+            },
+            "numberOfConsolidatedReportGenerated": 0,
+            "expectedReportNumber": 64,
+            "dicUsers": [],
+            "deoUsers": [
+              "67a8e71e6644e90f427711fc"
+            ],
+            "driverUsers": [],
+            "disabled": false,
+            "visibility": [
+              "ALL"
+            ],
+            "numberScreeningsDone": 254,
+            "_id": "67de49e50bf1b30b4ec87cef",
+            "externalCampId": "Chakahalli H D Kote 22-Mysore-571114",
+            "stateName": "Karnataka",
+            "dicReportFormId": {
+              "_id": "63c14b35ff02f5bb2e6a87cc",
+              "name": "DIC EOD Report"
+            },
+            "driverReportFormId": {
+              "_id": "63c14ae6ff02f5bb2e69f93e",
+              "name": "Driver EOD Report"
+            },
+            "programId": {
+              "type": "Program Mgmt",
+              "labourInspectors": [],
+              "keyLocations": [],
+              "disabled": false,
+              "status": "Active",
+              "numberScreeningsDone": 94553,
+              "_id": "678201df4fa7c845fee916e6",
+              "stateName": "Karnataka",
+              "districtName": "Mysore",
+              "totalBeneficiaries": 33500,
+              "programNumber": "Mysore,ಕಕಾಮಂ/ಪಿಹೆಚ್ ಸಿ/ಸಿಆರ್- 35/ 2024-25",
+              "programStartDate": "2025-01-11T18:30:00.000Z",
+              "labourOfficerName": "Chethan Kumar",
+              "issuingAuthority": "CEO & Secretary, Karnataka State Building and Other Construction Worker's Welfare Board",
+              "remarks": "Blossom Hospital",
+              "programShortCode": "Mysore_1_Mys",
+              "createdAt": "2025-01-11T05:30:07.528Z",
+              "createdBy": {
+                "_id": "678201df4fa7c845fee916e7",
+                "name": "john",
+                "userId": "63d7a6e5b443485c6cec6c14",
+                "userType": "HCW"
+              },
+              "updatedAt": "2025-03-22T08:55:55.888Z",
+              "__v": 0,
+              "updatedBy": {
+                "_id": "6788af30ccd9323fec899a95",
+                "name": "mary",
+                "userId": "63d7a65e210a1e5cc4b1dcc8",
+                "userType": "HCW"
+              }
+            },
+            "villageName": "Mysore",
+            "estimatedNumberOfScreenings": 200,
+            "latitude": 12.093462,
+            "longitude": 76.302877,
+            "villagePinCode": "571114",
+            "talukaName": "H D Kote",
+            "screeningStartDate": "2025-03-21T18:30:00.000Z",
+            "screeningStartTime": "10:53",
+            "name": "Chakahalli H D Kote 22",
+            "forms": [
+              {
+                "_id": "63b021a27e77bb4d6248b203",
+                "value": "63b021a27e77bb4d6248b203",
+                "label": "Basic Health Checkup",
+                "patientConsumable": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf1",
+                    "itemId": "63a152b9ba761b46ba118ea0",
+                    "itemName": "Disposable Mouth Piece",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf2",
+                    "itemId": "63a152e3ba761b46ba118eaf",
+                    "itemName": "Water Bottle",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf3",
+                    "itemId": "63aef9a0431a8b5b0fd19ef0",
+                    "itemName": "Dolo 250 mg",
+                    "quantity": 2
+                  }
+                ],
+                "userAccess": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf4",
+                    "label": "shahanajbanunkurtakoti@gmail.com",
+                    "value": "65c1e1e895e1a54204f2f6c9"
+                  }
+                ]
+              },
+              {
+                "_id": "64dc6efdd03d703c5e8b9d01",
+                "value": "64dc6efdd03d703c5e8b9d01",
+                "label": "Audiometry",
+                "userAccess": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf6",
+                    "label": "karanh123",
+                    "value": "67b41d512b289116fd73e8e7"
+                  }
+                ],
+                "patientConsumable": []
+              },
+              {
+                "_id": "63b555281d69946e4e49e091",
+                "value": "63b555281d69946e4e49e091",
+                "label": "Phlebotomist",
+                "patientConsumable": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf8",
+                    "itemId": "63a15307ba761b46ba118ebe",
+                    "itemName": "Juice",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cf9",
+                    "itemId": "63a1532fba761b46ba118ecd",
+                    "itemName": "EDTA Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cfa",
+                    "itemId": "63a1534dba761b46ba118edc",
+                    "itemName": "Florida Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cfb",
+                    "itemId": "63a154f4ba761b46ba118eeb",
+                    "itemName": "Gel Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cfc",
+                    "itemId": "63a15515ba761b46ba118efa",
+                    "itemName": "Urine Container",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cfd",
+                    "itemId": "63a15537ba761b46ba118f09",
+                    "itemName": "Needles",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cfe",
+                    "itemId": "63a15559ba761b46ba118f18",
+                    "itemName": "Hand Plaster",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87cff",
+                    "itemId": "63a1557bba761b46ba118f27",
+                    "itemName": "Zip Lock",
+                    "quantity": 1
+                  }
+                ],
+                "userAccess": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d00",
+                    "label": "chinumohan24@gmail.com",
+                    "value": "67aad6afcfae0d089f34c6ac"
+                  }
+                ]
+              },
+              {
+                "_id": "638b2a3c97c0192b1659257d",
+                "value": "638b2a3c97c0192b1659257d",
+                "label": "Optometry",
+                "patientConsumable": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d02",
+                    "itemId": "63a15307ba761b46ba118ebe",
+                    "itemName": "Juice",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d03",
+                    "itemId": "63a1532fba761b46ba118ecd",
+                    "itemName": "EDTA Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d04",
+                    "itemId": "63a1534dba761b46ba118edc",
+                    "itemName": "Florida Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d05",
+                    "itemId": "63a154f4ba761b46ba118eeb",
+                    "itemName": "Gel Tube",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d06",
+                    "itemId": "63a15515ba761b46ba118efa",
+                    "itemName": "Urine Container",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d07",
+                    "itemId": "63a15537ba761b46ba118f09",
+                    "itemName": "Needles",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d08",
+                    "itemId": "63a15559ba761b46ba118f18",
+                    "itemName": "Hand Plaster",
+                    "quantity": 1
+                  },
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d09",
+                    "itemId": "63a1557bba761b46ba118f27",
+                    "itemName": "Zip Lock",
+                    "quantity": 1
+                  }
+                ],
+                "userAccess": [
+                  {
+                    "_id": "67de49e50bf1b30b4ec87d0a",
+                    "label": "sharadabhangi753@gmail.com",
+                    "value": "656ae8c6ff1e59288e7b8489"
+                  }
+                ]
+              }
+            ],
+            "partnerOrganization": null,
+            "assigningAuthority": {
+              "isDisabled": false,
+              "_id": "640454dbf5a4ed22adf2b2cf",
+              "code": "1002",
+              "name": "PHC",
+              "gstin": "",
+              "address": "Hosa Road Bangalore-560100",
+              "location": "Hosa Road",
+              "notes": "",
+              "createdAt": "2023-03-05T08:37:47.580Z",
+              "updatedAt": "2023-06-14T05:32:23.180Z",
+              "__v": 0
+            },
+            "siteConsumable": [
+              {
+                "_id": "67de49e50bf1b30b4ec87d0b",
+                "itemId": "63a15230ba761b46ba118e73",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "MASK"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d0c",
+                "itemId": "63a1524fba761b46ba118e82",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "GARBAGE COVER"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d0d",
+                "itemId": "63a1526dba761b46ba118e91",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "HAND GLOVES"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d0e",
+                "itemId": "63a15168ba761b46ba118e28",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "BARCODE CARTAGE"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d0f",
+                "itemId": "63a15190ba761b46ba118e37",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "BARCODE ROLL"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d10",
+                "itemId": "63a151b4ba761b46ba118e46",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "COTTON ROLL"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d11",
+                "itemId": "63a151d7ba761b46ba118e55",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "SPIRIT"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d12",
+                "itemId": "63a15204ba761b46ba118e64",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "TOKEN BOOK"
+              }
+            ],
+            "assets": [
+              {
+                "_id": "67de49e50bf1b30b4ec87d13",
+                "itemId": "639cad778028653b1b64b7d3",
+                "batchNumber": "-",
+                "quantity": 2,
+                "itemName": "LAPTOP & CHARGER"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d14",
+                "itemId": "63a09801ba761b46ba118813",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "DONGLE"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d15",
+                "itemId": "63a0988aba761b46ba11882e",
+                "batchNumber": "-",
+                "quantity": 2,
+                "itemName": "ILR BOX"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d16",
+                "itemId": "63a1476bba761b46ba118c6a",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "Wellbe Health Kit"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d17",
+                "itemId": "63a14839ba761b46ba118cc0",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "SPIROMETER"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d18",
+                "itemId": "63a149e2ba761b46ba118d54",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "BAR CODE PRINTER"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d19",
+                "itemId": "63a14a1dba761b46ba118d69",
+                "batchNumber": "-",
+                "quantity": 18,
+                "itemName": "RECHARGEBLE CELL & CHARGER"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1a",
+                "itemId": "63a14a43ba761b46ba118d7e",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "HEIGHT SCALE"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1b",
+                "itemId": "63a14a6dba761b46ba118d8d",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "CANOPY"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1c",
+                "itemId": "63a14a90ba761b46ba118d9c",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "MOBILE TOILET"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1d",
+                "itemId": "63a14abeba761b46ba118dab",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "WATER CAN"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1e",
+                "itemId": "63a14ae4ba761b46ba118dba",
+                "batchNumber": "-",
+                "quantity": 4,
+                "itemName": "Plastic CHAIR"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d1f",
+                "itemId": "63a14b0aba761b46ba118dc9",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "TABLE"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d20",
+                "itemId": "63a14b30ba761b46ba118dd8",
+                "batchNumber": "-",
+                "quantity": 3,
+                "itemName": "SMALL DUSTBIN"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d21",
+                "itemId": "63a14b53ba761b46ba118de7",
+                "batchNumber": "-",
+                "quantity": 2,
+                "itemName": "T SHIRTS"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d22",
+                "itemId": "63a14b7aba761b46ba118df6",
+                "batchNumber": "-",
+                "quantity": 1,
+                "itemName": "Full APRON"
+              },
+              {
+                "_id": "67de49e50bf1b30b4ec87d23",
+                "itemId": "63a14ba2ba761b46ba118e05",
+                "batchNumber": "-",
+                "quantity": 3,
+                "itemName": "Half Apron"
+              }
+            ],
+            "store": null,
+            "type": "Camp",
+            "createdAt": "2025-03-22T05:25:57.215Z",
+            "createdBy": {
+              "_id": "67de49e50bf1b30b4ec87d24",
+              "name": "raghavendra",
+              "userId": "673c4a6fbfc10e1efe9a6836",
+              "userType": "Superviser"
+            },
+            "updatedAt": "2025-03-22T08:55:55.915Z",
+            "__v": 0
+          }
+    ]
+}
