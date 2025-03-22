@@ -1,0 +1,100 @@
+{
+    "authorities": [
+        {
+            "_id": "6389087c97c0192b1659210b",
+            "name": "Apollo"
+        },
+        {
+            "_id": "640454dbf5a4ed22adf2b2cf",
+            "name": "PHC"
+        },
+        {
+            "_id": "64385487c7a4d9635d62015e",
+            "name": "ESI"
+        },
+        {
+            "_id": "6545edac6ee3724edc270d58",
+            "name": "Bijapur district"
+        },
+        {
+            "_id": "6545edc06ee3724edc270d6e",
+            "name": "hosapete"
+        },
+        {
+            "_id": "6549fa957279aa4e84facba9",
+            "name": "Udupi"
+        },
+        {
+            "_id": "654f242f6ee3724edc34bb45",
+            "name": "Karwara Division"
+        },
+        {
+            "_id": "655ac0e19c2adb4658e4efec",
+            "name": "Haveri"
+        },
+        {
+            "_id": "655efe0879086a6b377b7f33",
+            "name": "Tumkur"
+        },
+        {
+            "_id": "655f0133ce50e56b3ed0246f",
+            "name": "Ramnagar"
+        },
+        {
+            "_id": "655f02dc8c03816b897def51",
+            "name": "Bellary"
+        },
+        {
+            "_id": "655f18718c03816b897e435d",
+            "name": "Hubli"
+        },
+        {
+            "_id": "655f2a17ce50e56b3ed0c8f2",
+            "name": "Hassan"
+        },
+        {
+            "_id": "6560033ace50e56b3ed34298",
+            "name": "shimoga"
+        },
+        {
+            "_id": "656006ebce50e56b3ed34671",
+            "name": "chitradurga"
+        },
+        {
+            "_id": "65600ad7ce50e56b3ed349f5",
+            "name": "2009"
+        },
+        {
+            "_id": "656038ac8c03816b898172fd",
+            "name": "mandya"
+        },
+        {
+            "_id": "6561737d1ab4ee26ef77152a",
+            "name": "Belagum"
+        },
+        {
+            "_id": "656404aa88c55f26e8c7edec",
+            "name": "Gadag"
+        },
+        {
+            "_id": "6568356691407828f6ef52a1",
+            "name": "Dharwad"
+        },
+        {
+            "_id": "6568359a91407828f6ef55fe",
+            "name": "Hubli 02"
+        },
+        {
+            "_id": "6569995091407828f6fb99f0",
+            "name": "Uttarakannada (Karwar)"
+        },
+        {
+            "_id": "656ec442ff1e59288e94d0cf",
+            "name": "Banglore"
+        },
+        {
+            "_id": "656efb4676251128951eb03f",
+            "name": "Davanagere"
+        }
+    ]
+}

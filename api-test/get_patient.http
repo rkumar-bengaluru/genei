@@ -1,4 +1,7 @@
 //POST http://98.84.97.216:8080/api/signup
-GET http://localhost:8080/api/patient/KA-244803029
+GET http://98.84.97.216:8080/api/patient/KA-244803029
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF1ZHlhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyMjExOTgwLCJyb2xlIjoiYXVkaW8iLCJ1c2VySWQiOjZ9.-jJaaloj-LhwKTMAWZBDQVQi6cPqpKGaTg5tjgU92HQ
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvY3lhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyNDkxMjYzLCJyb2xlIjoiZG9jdG9yIiwidXNlcklkIjoxfQ.nRHIC51Jt2g1sCFTlZpDsW4hH7RtwLhJmolzj3L0ot8
+
+
+curl http://98.84.97.216:8080/api/patient/KA-244803029 -H "authorization: "

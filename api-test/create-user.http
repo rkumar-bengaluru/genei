@@ -3,7 +3,20 @@ POST http://localhost:8080/api/signup
 content-type: application/json
 
 {
-  "email": "audyadt1@example.com",
+  "user_name": "audyadt1@example.com",
   "password": "Team1@1234",
-  "role": "audio"
+  "mobile": "123456789",
+  "email_id": "audyadt1@example.com",
+  "gender": "M",
+  "first_name": "test",
+  "middle_name": "test",
+  "last_name": "test",
+  "ctc": "test",
+  "date_of_birth": "2022-04-09T15:04:05Z",
+  "date_of_joining": "2022-04-09T15:04:05Z",
+  "last_working_day": "2022-04-09T15:04:05Z",
+  "role_id": "448de175-17f6-4be5-893c-e0312305ca13",
+  "department_id": "eff5b034-2ce2-453e-887f-37cea5aabacb" ,
+  "application_access_id": "da3bd164-0e06-46d8-89c6-7f22e370ebad", 
+  "assigning_authority_id" : "e37a717f-8a5a-432c-9796-2ccc29d7b357"
 }

@@ -105,10 +105,10 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(18) NOT NULL,
   mobile VARCHAR(11) NOT NULL,
   email_id VARCHAR(100) NOT NULL,
-  assigning_authority_id UUID NOT NULL,
+  assigning_authority_id UUID ,
   role_id UUID NOT NULL,
-  department_id UUID NOT NULL,
-  application_access_id UUID NOT NULL,
+  department_id UUID ,
+  application_access_id UUID ,
   gender VARCHAR(1) NOT NULL,
   first_name VARCHAR(18) NOT NULL UNIQUE,
   last_name VARCHAR(18) NOT NULL UNIQUE,
@@ -133,6 +133,7 @@ CREATE TABLE IF NOT EXISTS work_orders (
 -- patient registration
 CREATE TABLE IF NOT EXISTS registrations (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  registration_date DATE NOT NULL,
   uhid VARCHAR(40) NOT NULL,
   barcode VARCHAR(40) NOT NULL,
   name VARCHAR(40) NOT NULL,

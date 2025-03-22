@@ -6,17 +6,19 @@ import (
 
 	"example.com/rest-api/models"
 	"example.com/rest-api/service"
+	"example.com/rest-api/zcontext"
 	"github.com/gin-gonic/gin"
 )
 
 func getPatient(context *gin.Context, svc *service.PatientService) {
+	traceCtx := zcontext.BackgroundContext()
 	uhid := context.Param("id")
 	if uhid == "" {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse uhid."})
 		return
 	}
 
-	patient, err := svc.GetPatientByUhid(uhid)
+	patient, err := svc.GetPatientByUhid(&traceCtx, uhid)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not save user."})
 		return
@@ -26,7 +28,8 @@ func getPatient(context *gin.Context, svc *service.PatientService) {
 }
 
 func createPatient(context *gin.Context, svc *service.PatientService) {
-	var patient models.Patient
+	traceCtx := zcontext.BackgroundContext()
+	var patient models.Registration
 	err := context.ShouldBindJSON(&patient)
 
 	if err != nil {
@@ -35,7 +38,7 @@ func createPatient(context *gin.Context, svc *service.PatientService) {
 		return
 	}
 
-	err = svc.Save(&patient)
+	err = svc.Save(&traceCtx, &patient)
 
 	if err != nil {
 		fmt.Println(err)

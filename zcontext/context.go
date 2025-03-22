@@ -20,9 +20,6 @@ const (
 	AuthorizationHeaderName            = "authorization"
 	SchemaOperationName                = "__schema"
 	reqIdCtxKey             contextKey = "traceId"
-	salesOrgCtxKey          contextKey = "salesOrg"
-	customerCodeCtxKey      contextKey = "customerCode"
-	shipToCodeCtxKey        contextKey = "shipToCode"
 	languageCtxKey          contextKey = "language"
 	loggerCtxKey            contextKey = "logger"
 	operationNameCtxKey     contextKey = "operationName"
@@ -54,16 +51,6 @@ func getDBTimeout() int {
 	return int(dbTimeoutInt)
 }
 
-// WithSalesOrg Bind salesOrg to context variable
-func WithSalesOrg(ctx context.Context, salesOrg string) context.Context {
-	return context.WithValue(ctx, salesOrgCtxKey, salesOrg)
-}
-
-// GetSalesOrg get salesOrg from context
-func SalesOrg(ctx context.Context) string {
-	return readCtx(ctx, salesOrgCtxKey)
-}
-
 // WithLanguage binds language to context variable
 func WithLanguage(ctx context.Context, language string) context.Context {
 	return context.WithValue(ctx, languageCtxKey, language)
@@ -77,22 +64,6 @@ func Language(ctx context.Context) string {
 // WithTraceID Bind correlation id to context variable
 func WithTraceID(ctx context.Context, reqID string) context.Context {
 	return context.WithValue(ctx, reqIdCtxKey, reqID)
-}
-
-func WithCustomerCode(ctx context.Context, customerCode string) context.Context {
-	return context.WithValue(ctx, customerCodeCtxKey, customerCode)
-}
-
-func WithShipToCode(ctx context.Context, shipToCode string) context.Context {
-	return context.WithValue(ctx, shipToCodeCtxKey, shipToCode)
-}
-
-func CustomerCode(ctx context.Context) string {
-	return readCtx(ctx, customerCodeCtxKey)
-}
-
-func ShipToCode(ctx context.Context) string {
-	return readCtx(ctx, shipToCodeCtxKey)
 }
 
 func WithSource(ctx context.Context, val string) context.Context {

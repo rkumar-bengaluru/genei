@@ -8,6 +8,7 @@ import (
 
 	"example.com/rest-api/logger"
 	"example.com/rest-api/utils"
+	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"go.uber.org/zap"
 )
@@ -53,7 +54,7 @@ func InitConfig(ctx context.Context) *Config {
 	}
 }
 
-func CreateDB(ctx context.Context, serviceName string) *sql.DB {
+func CreateDB(ctx context.Context, serviceName string) *sqlx.DB {
 	return CreateDBWithConfig(ctx, serviceName, InitConfig(ctx))
 }
 
@@ -87,12 +88,13 @@ func (c *Config) normalize() {
 	}
 }
 
-func CreateDBWithConfig(ctx context.Context, serviceName string, postgresConfiguration *Config) *sql.DB {
+func CreateDBWithConfig(ctx context.Context, serviceName string, postgresConfiguration *Config) *sqlx.DB {
 	postgresConfiguration.normalize()
 	dsn := "host=" + postgresConfiguration.Host + " port=" + postgresConfiguration.Port + " user='" +
 		postgresConfiguration.User + "' password='" + postgresConfiguration.Password + "' dbname='" +
 		postgresConfiguration.DBName + "' sslmode=" + postgresConfiguration.SSLMode
-	db, err := sql.Open("postgres", dsn)
+	db, err := sqlx.Connect("postgres", dsn)
+	//db, err := sql.Open("postgres", dsn)
 	if err != nil {
 		logger.Get(ctx).With(zap.Error(err)).Panic("connection open pg failed")
 	}
@@ -104,7 +106,7 @@ func CreateDBWithConfig(ctx context.Context, serviceName string, postgresConfigu
 	for i := 3; i >= 0; i-- {
 		res, err := db.Exec("SELECT 1")
 		if err == nil {
-			createTables(db)
+			//createTables(db)
 			return db
 		}
 		logger.Get(ctx).With(zap.Error(err)).Error(fmt.Sprintf("res %v", res))

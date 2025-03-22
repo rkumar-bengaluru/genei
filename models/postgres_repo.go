@@ -1,168 +1,160 @@
 package models
 
-import (
-	"context"
-	"database/sql"
-	"errors"
-	"fmt"
+// import (
+// 	"context"
+// 	"database/sql"
+// 	"errors"
+// 	"fmt"
 
-	"example.com/rest-api/logger"
-	"example.com/rest-api/utils"
-	"github.com/jmoiron/sqlx"
-	"go.uber.org/zap"
-)
+// 	"example.com/rest-api/logger"
+// 	"example.com/rest-api/utils"
+// 	"github.com/jmoiron/sqlx"
+// 	"go.uber.org/zap"
+// )
 
-const (
-	schema = "mydb"
-)
+// func (r *postgresRepository) GetPatientByUhid(uhid string) (*Registration, error) {
+// 	ctx := context.Background()
+// 	log := logger.Get(ctx).With(
+// 		zap.String("uhid", uhid),
+// 		zap.String("method", "GetPatientByUhid"))
 
-// Repository contains db dependencies and implements methods to interact with db
-type postgresRepository struct {
-	DB *sql.DB
-}
+// 	p := Registration{}
+// 	var inputArgs []interface{}
+// 	sqlQuery := `SELECT registration_date, uhid, barcode, name, labour_id, age,
+// 	                 gender, mobile, district, taluk, camp FROM patients WHERE uhid = ?`
 
-// GetDB returns the db
-func (r *postgresRepository) GetDB() *sql.DB {
-	return r.DB
-}
+// 	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
+// 	inputArgs = append(inputArgs, uhid)
+// 	log.Info(fmt.Sprintf("query : %v", sqlQuery))
 
-func (r *postgresRepository) GetPatientByUhid(uhid string) (*Patient, error) {
-	ctx := context.Background()
-	log := logger.Get(ctx).With(
-		zap.String("uhid", uhid),
-		zap.String("method", "GetPatientByUhid"))
+// 	row := DB.QueryRow(sqlQuery, inputArgs...)
 
-	p := Patient{}
-	var inputArgs []interface{}
-	sqlQuery := `SELECT uhid, barcode, name, labour_id, age,
-	                 gender, mobile, district, taluk, camp FROM patients WHERE uhid = ?`
+// 	err := row.Scan(&p.RegistrationDate, &p.Uhid, &p.Barcode, &p.Name, &p.LabourId, &p.Age,
+// 		&p.Gender, &p.Mobile, &p.DistrictId, &p.Taluk, &p.CampaignId)
 
-	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
-	inputArgs = append(inputArgs, uhid)
-	log.Info(fmt.Sprintf("query : %v", sqlQuery))
+// 	if err != nil {
+// 		log.Error(err.Error())
+// 		return nil, err
+// 	}
 
-	row := DB.QueryRow(sqlQuery, inputArgs...)
+// 	return &p, nil
+// }
 
-	err := row.Scan(&p.Uhid, &p.Barcode, &p.Name, &p.LabourId, &p.Age,
-		&p.Gender, &p.Mobile, &p.District, &p.Taluk, &p.Camp)
+// func (r *postgresRepository) SaveRegistration(p *Registration) error {
+// 	ctx := context.Background()
+// 	log := logger.Get(ctx).With(
+// 		zap.String("barcode", p.Barcode),
+// 		zap.String("method", "SavePatient"))
+// 	var inputArgs []interface{}
+// 	var userid int
+// 	sqlQuery := `INSERT INTO registrations(registration_date, uhid, barcode, name, labour_id, age,
+// 	                     gender, mobile, district_id, taluk, campaign_id)
+// 					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id `
 
-	if err != nil {
-		log.Error(err.Error())
-		return nil, err
-	}
+// 	inputArgs = append(inputArgs, p.RegistrationDate, p.Uhid, p.Barcode, p.Name, p.LabourId, p.Age,
+// 		p.Gender, p.Mobile, p.DistrictId, p.Taluk, p.CampaignId)
+// 	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
 
-	return &p, nil
-}
+// 	log.Info(fmt.Sprintf("query : %v", sqlQuery))
+// 	err := DB.QueryRow(sqlQuery, inputArgs...).Scan(&userid)
 
-func (r *postgresRepository) SavePatient(p *Patient) error {
-	ctx := context.Background()
-	log := logger.Get(ctx).With(
-		zap.String("barcode", p.Barcode),
-		zap.String("method", "SavePatient"))
-	var inputArgs []interface{}
-	var userid int
-	sqlQuery := `INSERT INTO patients(uhid, barcode, name, labour_id, age,
-	                     gender, mobile, district, taluk, camp) 
-					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id `
+// 	if err != nil {
+// 		return err
+// 	}
+// 	log.Info(fmt.Sprintf("beneficiary added with id : %v", userid))
+// 	return nil
+// }
 
-	inputArgs = append(inputArgs, p.Uhid, p.Barcode, p.Name, p.LabourId, p.Age,
-		p.Gender, p.Mobile, p.District, p.Taluk, p.Camp)
-	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
+// func (r *postgresRepository) SaveUser(u *User) error {
+// 	ctx := context.Background()
+// 	log := logger.Get(ctx).With(
+// 		zap.String("username", u.EmailId),
+// 		zap.String("role", u.RoleId.String()),
+// 		zap.String("method", "SaveUser"))
 
-	log.Info(fmt.Sprintf("query : %v", sqlQuery))
-	err := DB.QueryRow(sqlQuery, inputArgs...).Scan(&userid)
+// 	hashedPassword, err := utils.HashPassword(u.Password)
 
-	if err != nil {
-		return err
-	}
-	log.Info(fmt.Sprintf("beneficiary added with id : %v", userid))
-	return nil
-}
+// 	if err != nil {
+// 		log.Error(err.Error())
+// 		return err
+// 	}
 
-func (r *postgresRepository) SaveUser(u *User) error {
-	ctx := context.Background()
-	log := logger.Get(ctx).With(
-		zap.String("username", u.Email),
-		zap.String("role", u.Role),
-		zap.String("method", "SaveUser"))
+// 	var inputArgs []interface{}
+// 	sqlQuery := `INSERT INTO users(user_name, password,mobile,email_id,assigning_authority_id,
+// 				role_id,department_id,application_access_id,gender,first_name,
+// 				last_name,middle_name,date_of_birth,date_of_joining,last_working_day,
+// 				monthly_ctc,campaign_id) VALUES (?, ?, ?)`
 
-	hashedPassword, err := utils.HashPassword(u.Password)
+// 	inputArgs = append(inputArgs, u.UserName, hashedPassword, u.Mobile, u.EmailId, u.AssigningAuthorityId,
+// 		u.RoleId, u.DepartmentId, u.ApplicationAccessId, u.Gender, u.FirstName,
+// 		u.LastName, u.MiddleName, u.DateOfBirth, u.DateOfJoining, u.LastWorkingDay,
+// 		u.CTC, u.CampaignId)
+// 	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
+// 	log.Info(fmt.Sprintf("query : %v", sqlQuery))
+// 	result, err := DB.ExecContext(ctx, sqlQuery, inputArgs...)
 
-	if err != nil {
-		log.Error(err.Error())
-		return err
-	}
+// 	if err != nil {
+// 		log.Error(err.Error())
+// 		return err
+// 	}
 
-	var inputArgs []interface{}
-	sqlQuery := `INSERT INTO users(email, password,role) VALUES (?, ?, ?)`
+// 	_, err = result.RowsAffected()
 
-	inputArgs = append(inputArgs, u.Email, hashedPassword, u.Role)
-	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
-	log.Info(fmt.Sprintf("query : %v", sqlQuery))
-	result, err := DB.ExecContext(ctx, sqlQuery, inputArgs...)
+// 	if err != nil {
+// 		logger.Get(ctx).Error(err.Error())
+// 		return err
+// 	}
 
-	if err != nil {
-		log.Error(err.Error())
-		return err
-	}
+// 	log.Info("User created successfully. ")
+// 	return err
+// }
 
-	_, err = result.RowsAffected()
+// func (r *postgresRepository) ValidateCredentials(u *User) (string, error) {
+// 	ctx := context.Background()
+// 	var inputArgs []interface{}
+// 	log := logger.Get(ctx).With(zap.String("username", u.EmailId),
+// 		zap.String("role", u.RoleId.String()),
+// 		zap.String("method", "ValidateCredentials"))
 
-	if err != nil {
-		logger.Get(ctx).Error(err.Error())
-		return err
-	}
+// 	sqlQuery := "SELECT id, password,role_id FROM users WHERE user_name = ?"
 
-	log.Info("User created successfully. ")
-	return err
-}
+// 	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
+// 	inputArgs = append(inputArgs, u.EmailId)
+// 	log.Info(fmt.Sprintf("query : %v", sqlQuery))
 
-func (r *postgresRepository) ValidateCredentials(u *User) (string, error) {
-	ctx := context.Background()
-	var inputArgs []interface{}
-	log := logger.Get(ctx).With(zap.String("username", u.Email),
-		zap.String("role", u.Role),
-		zap.String("method", "ValidateCredentials"))
+// 	row := DB.QueryRow(sqlQuery, inputArgs...)
 
-	sqlQuery := "SELECT id, password,role_id FROM users WHERE user_name = ?"
+// 	var retrievedPassword string
+// 	var roleId string
+// 	err := row.Scan(&u.ID, &retrievedPassword, &roleId)
 
-	sqlQuery = sqlx.Rebind(sqlx.DOLLAR, sqlQuery)
-	inputArgs = append(inputArgs, u.Email)
-	log.Info(fmt.Sprintf("query : %v", sqlQuery))
+// 	if err != nil {
+// 		log.Error(err.Error())
+// 		return "", err
+// 	}
 
-	row := DB.QueryRow(sqlQuery, inputArgs...)
+// 	log.Info("reading user from db successful")
+// 	passwordIsValid := utils.CheckPasswordHash(u.Password, retrievedPassword)
 
-	var retrievedPassword string
-	var roleId string
-	err := row.Scan(&u.ID, &retrievedPassword, &roleId)
+// 	if !passwordIsValid {
+// 		return "", errors.New("credentials invalid")
+// 	}
 
-	if err != nil {
-		log.Error(err.Error())
-		return "", err
-	}
+// 	// fetch role
+// 	sqlQueryFetchRole := "SELECT name FROM roles WHERE id = ?"
+// 	var inputArgsRole []interface{}
+// 	sqlQueryFetchRole = sqlx.Rebind(sqlx.DOLLAR, sqlQueryFetchRole)
+// 	inputArgsRole = append(inputArgsRole, roleId)
+// 	log.Info(fmt.Sprintf("query : %v", sqlQueryFetchRole))
 
-	log.Info("reading user from db successful")
-	passwordIsValid := utils.CheckPasswordHash(u.Password, retrievedPassword)
+// 	row = DB.QueryRow(sqlQueryFetchRole, inputArgsRole...)
+// 	var roleName string
+// 	err = row.Scan(&roleName)
 
-	if !passwordIsValid {
-		return "", errors.New("credentials invalid")
-	}
+// 	if err != nil {
+// 		log.Error(err.Error())
+// 		return "", err
+// 	}
 
-	// fetch role
-	sqlQueryFetchRole := "SELECT name FROM roles WHERE id = ?"
-	var inputArgsRole []interface{}
-	sqlQueryFetchRole = sqlx.Rebind(sqlx.DOLLAR, sqlQueryFetchRole)
-	inputArgsRole = append(inputArgsRole, roleId)
-	log.Info(fmt.Sprintf("query : %v", sqlQueryFetchRole))
-
-	row = DB.QueryRow(sqlQueryFetchRole, inputArgsRole...)
-	var roleName string
-	err = row.Scan(&roleName)
-
-	if err != nil {
-		log.Error(err.Error())
-		return "", err
-	}
-
-	return roleName, nil
-}
+// 	return roleName, nil
+// }

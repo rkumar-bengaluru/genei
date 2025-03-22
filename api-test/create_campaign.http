@@ -1,0 +1,26 @@
+//POST http://98.84.97.216:8080/api/signup
+POST http://localhost:8080/api/admin/campaigns
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvY3lhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyNDcxMDI5LCJyb2xlIjoiZG9jdG9yIiwidXNlcklkIjoxfQ.7Fo8AOZscqOJnKW0ugGUk4rxnPshR-Z42D_wuVi40HM
+
+{
+  "estimated_target_screening": 75,
+  "labour_inspector_name": " ",
+  "union_name": " ",
+  "union_leader_name": " ",
+  "latitude": "13.30559672590502",
+  "longitude": "78.10513894908783",
+  "taluk": "SrinivasaPura",
+  "camp_name": "dalasanur",
+  "description": " ",
+  "screening_start_date": "2025-03-20T15:04:05Z",
+  "screening_start_time": "15:04:05Z",
+  "application_access_id": "da3bd164-0e06-46d8-89c6-7f22e370ebad",
+  "district_id": "0303f494-ad0a-4918-b943-24e97aceef46",
+  "state_id": "35e89f12-dba7-406e-8be8-c515e02b71b5",
+  "assigning_authority_id": "e37a717f-8a5a-432c-9796-2ccc29d7b357",
+  "store_id": "aaafc79f-993c-4400-9ba8-729afa8123ef",
+  "work_order_id": "2cac6a45-1e8a-4d82-84ed-8ba196fef073",
+  "pin_code_id": "f65e6e2b-1491-4d78-8611-8fe3e6c38604"
+  
+}

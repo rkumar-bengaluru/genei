@@ -1,17 +1,19 @@
 //POST http://98.84.97.216:8080/api/signup
 POST http://localhost:8080/api/patients
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF1ZHlhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyMjExOTgwLCJyb2xlIjoiYXVkaW8iLCJ1c2VySWQiOjZ9.-jJaaloj-LhwKTMAWZBDQVQi6cPqpKGaTg5tjgU92HQ
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvY3lhZHQxQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQyNDcxMDI5LCJyb2xlIjoiZG9jdG9yIiwidXNlcklkIjoxfQ.7Fo8AOZscqOJnKW0ugGUk4rxnPshR-Z42D_wuVi40HM
 
 {
+  "registration_date": "2025-03-09T15:04:05Z",
   "uhid": "KA-244803029",
   "barcode": "243671063",
   "name": "krishnegowda",
-  "labourid": "255363",
+  "labour_id": "255363",
   "age": 40,
-  "gender": "Male",
+  "gender": "M",
   "mobile": "9844658912",
-  "district": "Mandya",
   "taluk": "Maddur",
-  "camp": "Maradevanahalli(Maddur)"
+  "district_id": "0303f494-ad0a-4918-b943-24e97aceef46",
+  "campaign_id": "98931a39-3e72-495d-b31d-2752b712b7d8"
 }
+  

@@ -1,0 +1,46 @@
+//POST http://98.84.97.216:8080/api/signup
+POST https://wellbe.metahos.com/api/module/camps/list
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic3VnZ3VsYXN1YmJhQGdtYWlsLmNvbSIsInR5cGUiOiJIQ1ciLCJjb250YWN0IjoiOTkxNjI5OTM2NiIsInByb2ZpbGVVUkwiOm51bGwsImlkIjoiNjU1NzRhYWFjNTRkMzc0NjVlN2MyNmI4IiwiZGVwYXJ0bWVudCI6IiIsInJvbGVzIjpbeyJkZWZhdWx0Um91dGUiOiIvY2FtcHMvc2NyZWVuaW5nIiwiX2lkIjoiNjU4NDM3YjY0YzIyNTI1OTlhZjUxNjRhIiwibmFtZSI6IkRpc3RyaWN0IEFkbWluIiwicGVybWlzc2lvbnMiOlt7Il9pZCI6IjY1ODQzN2I2NGMyMjUyNTk5YWY1MTY0MSIsImtleSI6ImFjY2Vzc19jYW1wc19saXN0In0seyJfaWQiOiI2NTg0Mzk2NWQ2ZDlhNDU5NDA0MzRhZDUiLCJrZXkiOiJhY2Nlc3NfbGFiX3BlbmRpbmcifSx7Il9pZCI6IjY1ODQzOTY1ZDZkOWE0NTk0MDQzNGFkNyIsImtleSI6ImFjY2Vzc19sYWJfbW9kdWxlIn0seyJfaWQiOiI2NTg0M2JiOTNhYmUyZjU5YTFjNmY4ZDMiLCJrZXkiOiJhY2Nlc3NfaHJfbW9kdWxlIn0seyJfaWQiOiI2NTg0M2JiOTNhYmUyZjU5YTFjNmY4ZDQiLCJrZXkiOiJhY2Nlc3NfbWFuYWdlX3VzZXJzIn0seyJfaWQiOiI2NTg0M2RlNDNhYmUyZjU5YTFjNzE5YTMiLCJrZXkiOiJjb21wbGV0ZWRfY2FtcHMifSx7Il9pZCI6IjY1ODQzZWZkOTU1MDZiNTkzOTE2MmJlYSIsImtleSI6ImVkaXRfdXNlcnNfYW5kX2RvY3RvcnMifSx7Il9pZCI6IjY1ODQ1MWExNGMyMjUyNTk5YWY2YTllNiIsImtleSI6ImFjY2Vzc19jYW1wc19tb2R1bGUifV0sImFsbFBlcm1pc3Npb25zU2VsZWN0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTEyLTIxVDEzOjAzOjUwLjU0N1oiLCJjcmVhdGVkQnkiOnsiX2lkIjoiNjU4NDM3YjY0YzIyNTI1OTlhZjUxNjQ4IiwibmFtZSI6ImFtaXQiLCJ1c2VySWQiOiI2M2IyOTE4NjdlNzdiYjRkNjI0OGIzYWIiLCJ1c2VyVHlwZSI6IlN1cGVyVXNlciJ9LCJ1cGRhdGVkQXQiOiIyMDI0LTExLTI5VDA4OjE3OjEyLjc3NFoiLCJfX3YiOjAsInVwZGF0ZWRCeSI6eyJfaWQiOiI2NWM0YTY0ZWIyZWE2ZTE1OTJjOTRmZGMiLCJuYW1lIjoiYW1pdCIsInVzZXJJZCI6IjYzYjI5MTg2N2U3N2JiNGQ2MjQ4YjNhYiIsInVzZXJUeXBlIjoiU3VwZXJVc2VyIn0sImZvckFsbEF1dGhvcml0eSI6dHJ1ZX1dLCJzdG9yZXMiOltdLCJpYXQiOjE3NDI0NjIzNzksImV4cCI6MTc0MjYzNTE3OX0.ZFa_N9esNqWKNMTjSCbE3b9bf6_kq-5yRr4RjBxNi_c
+
+{
+  "__paginate": {
+    "page": 2,
+    "limit": 20,
+    "orderBy": "createdAt",
+    "orderDirection": "desc",
+    "populate": [
+      {
+        "path": "partnerOrganization"
+      },
+      {
+        "path": "assigningAuthority"
+      },
+      {
+        "path": "extraDetails",
+        "populate": [
+          "labItem"
+        ]
+      },
+      {
+        "path": "programId"
+      },
+      {
+        "path": "store",
+        "select": "name _id"
+      },
+      {
+        "path": "driverReportFormId",
+        "select": "name _id"
+      },
+      {
+        "path": "deoReportFormId",
+        "select": "name _id"
+      },
+      {
+        "path": "dicReportFormId",
+        "select": "name _id"
+      }
+    ]
+  }
+}
